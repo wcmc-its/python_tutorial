@@ -4,6 +4,25 @@ import requests
 import re
 import configparser
 import sys
+import argparse
+
+parser = argparse.ArgumentParser(description= "This is our URL Spider")
+parser.add_argument("input_url")
+parser.add_argument("-s" , help="Search Sting")
+parser.add_argument("-c", help="Config File")
+args= parser.parse_args()
+print(args)
+print(args.input_url)
+print(args.s)
+print(args.c)
+
+sys.exit()
+
+#config = URL 
+#searchstring
+#config_file = Col_Gile.conf
+
+
 
 arguments = sys.argv
 section = arguments[1]
