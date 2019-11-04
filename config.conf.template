@@ -1,0 +1,5 @@
+[DEFAULT]
+url = https://test.domain
+ 
+[Domain2]
+url = https://another.test.domain
