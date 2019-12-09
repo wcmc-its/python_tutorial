@@ -7,14 +7,25 @@ import sys
 import argparse
 
 parser = argparse.ArgumentParser(description= "This is our URL Spider")
-parser.add_argument("input_url")
+parser.add_argument("input", help= "Specify a URL to search or a config file section")
 parser.add_argument("-s" , help="Search Sting")
 parser.add_argument("-c", help="Config File")
 args= parser.parse_args()
 print(args)
-print(args.input_url)
+print(args.input)
 print(args.s)
 print(args.c)
+
+if args.c is not None:
+        config = configparser.ConfigParser()
+        config.read(args.c)
+        url = config[args.input]["url"]
+        print(url)
+
+else:
+        url = args.input
+        print(url)
+        
 
 sys.exit()
 
@@ -24,12 +35,6 @@ sys.exit()
 
 
 
-arguments = sys.argv
-section = arguments[1]
-
-config = configparser.ConfigParser()
-config.read("config.conf")
-input_url = config[section]["url"]
 
 url_regex = re.compile('"https?://.*?"')
 
